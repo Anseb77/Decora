@@ -1,0 +1,294 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  margin: 50px 0;
+  font-size: 5rem;
+  background-color: #8b4c9e;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+input {
+  padding: 14px;
+  width: 60%;
+  max-width: 400px;
+  border: none;
+  border-radius: 1px;
+  font-size: 1rem;
+  margin-top: 20px;
+  outline: none;
+}
+
+.buttonsearch{
+  background: #fbca1f;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
+
+.buttonsearch:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+.buttonsearch:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+}
+/* Contenedor para los botones */
+.buttons-container {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+}
+
+.download-button{
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(200, 235, 206);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+}
+.svgIcon {
+  fill: rgb(113, 10, 231);
+}
+
+.icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid rgb(182, 143, 255);
+  border-left: 2px solid rgb(182, 143, 255);
+  border-right: 2px solid rgb(182, 143, 255);
+}
+
+.tooltip {
+  position: absolute;
+  right: -105px;
+  opacity: 0;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgb(12, 12, 12);
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  left: -5%;
+  transition-duration: .3s;
+}
+
+.Btn:hover .tooltip {
+  opacity: 1;
+  transition-duration: .3s;
+}
+
+.Btn:hover {
+  background-color: rgb(150, 94, 255);
+  transition-duration: .3s;
+}
+
+.Btn:hover .icon2 {
+  border-bottom: 2px solid rgb(235, 235, 235);
+  border-left: 2px solid rgb(235, 235, 235);
+  border-right: 2px solid rgb(235, 235, 235);
+}
+
+.Btn:hover .svgIcon {
+  fill: rgb(255, 255, 255);
+  animation: slide-in-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+
+.container {
+  margin-top: 20px;
+  flex-grow: 1; /* Hace que el contenedor crezca y ocupe el espacio disponible */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid img:hover {
+  transform: scale(1.1);
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ff4081;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.download-link:hover {
+  background-color: #e0326a;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para dispositivos con pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  input {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+
+ 
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 5px;
+  }
+
+  .download-link {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Para pantallas más pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  input {
+    width: 90%;
+    font-size: 2rem;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-link {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Estilos para el cambio de tema */
+
+/* Tema oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode h1 {
+  background-color: #8b4c9e;
+}
+
+body.dark-mode button {
+  background-color: #ff4081;
+}
+
+body.dark-mode .download-link {
+  background-color: #ff4081;
+}
+
+/* Tema claro */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #121212;
+}
+
+body.light-mode h1 {
+  background-color: #8b4c9e;
+}
+
+body.light-mode button {
+  background-color: #ff4081;
+}
+
+body.light-mode .download-link {
+  background-color: #ff4081;
+}
+
+/* Botón para cambiar el tema */
+.toggle-theme {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #8b4c9e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-theme:hover {
+  background-color: #732f74;
+}
+
